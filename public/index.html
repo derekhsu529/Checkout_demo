@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Checkout Web Components: Flow Component</title>
         <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
 
     <body>
@@ -27,5 +28,36 @@
         <script src="https://checkout-web-components.checkout.com/index.js"></script>
 
         <script src="app.js"></script>
+
+        <div class="cart-container">
+            <div class="company-logo">
+                <img src="./logo.png" alt="Company Logo">
+            </div>
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1552318965-6e6be7484ada?w=150" alt="Soccer Ball" class="product-image">
+                <div class="item-details">
+                    <h3>Professional Soccer Ball</h3>
+                    <p class="item-description">High Quality Match Ball</p>
+                    <div class="price-quantity">
+                        <span class="price">$50.00</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="subtotal">
+                    <span>Subtotal:</span>
+                    <span>$50.00</span>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

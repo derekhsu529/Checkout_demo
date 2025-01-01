@@ -17,7 +17,11 @@ html {
 
 form {
   max-width: 31.5rem;
-  margin: 0 auto;
+  margin: 0;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  transform: none;
 }
 
 .toast {
@@ -74,4 +78,141 @@ form {
     bottom: 0;
     opacity: 0;
   }
+}
+
+/* 购物篮容器样式 */
+.cart-container {
+    position: fixed;
+    left: calc(31.5rem + 25px);
+    top: 20px;
+    transform: none;
+    width: 378px;
+    min-height: 460px;
+    max-height: 460px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.cart-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.cart-item {
+    display: flex;
+    padding: 20px 0;
+}
+
+.product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-details {
+    margin-left: 12px;
+    flex-grow: 1;
+}
+
+.item-details h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.item-description {
+    color: #666;
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.price-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.price {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.quantity-controls {
+    display: flex;
+    align-self: flex-end;
+    gap: 10px;
+}
+
+.quantity-btn {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity {
+    font-weight: bold;
+}
+
+.cart-summary {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* 调整整体布局容器 */
+.container {
+  margin-right: 5mm;
+}
+
+/* 添加购物车标题容器样式 */
+.cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.cart-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.cart-header i {
+    font-size: 1.3em;
+    color: #2c3e50;
+}
+
+/* 公司 logo 样式 */
+.company-logo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.company-logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
 }
