@@ -35,12 +35,10 @@ Before running this project, ensure you have:
 ## Installation
 
 1. Clone the repository:
-bash
 git clone [repository-url]
 cd checkout-payment-demo
 
 2. Install dependencies:
-bash
 npm install
 
 3. Configure your Checkout.com credentials in `app.js`:
