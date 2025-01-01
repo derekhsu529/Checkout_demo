@@ -16,12 +16,17 @@ html {
 }
 
 form {
-  max-width: 31.5rem;
+  width: 504px;
+  max-width: 504px;
   margin: 0;
   position: fixed;
   left: 20px;
-  top: 20px;
+  top: 5px;
   transform: none;
+  background: white;
+  border-radius: 10px;
+  padding: 0;
+  min-height: 460px;
 }
 
 .toast {
@@ -83,8 +88,8 @@ form {
 /* 购物篮容器样式 */
 .cart-container {
     position: fixed;
-    left: calc(31.5rem + 25px);
-    top: 20px;
+    left: calc(504px + 25px + 20px);
+    top: 25px;
     transform: none;
     width: 378px;
     min-height: 460px;
@@ -92,7 +97,7 @@ form {
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -105,7 +110,7 @@ form {
 
 .cart-item {
     display: flex;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .product-image {
@@ -149,6 +154,15 @@ form {
     display: flex;
     align-self: flex-end;
     gap: 10px;
+    align-items: center;
+}
+
+.quantity {
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    min-width: 20px;
+    justify-content: center;
 }
 
 .quantity-btn {
@@ -161,15 +175,13 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.quantity {
-    font-weight: bold;
+    padding: 0;
+    line-height: 1;
 }
 
 .cart-summary {
     margin-top: auto;
-    padding-top: 20px;
+    padding: 20px;
     border-top: 1px solid #ddd;
 }
 
@@ -183,11 +195,14 @@ form {
 
 /* 调整整体布局容器 */
 .container {
-  margin-right: 5mm;
+  margin-right: 0;
+  width: 100%;
+  padding: 20px;
 }
 
 /* 添加购物车标题容器样式 */
 .cart-header {
+    padding: 20px 20px 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -206,9 +221,14 @@ form {
 
 /* 公司 logo 样式 */
 .company-logo {
-    margin-bottom: 20px;
+    margin: 0;
+    padding: 15px 20px;
     display: flex;
     justify-content: flex-start;
+    background: #e3f2fd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #bbdefb;
 }
 
 .company-logo img {
