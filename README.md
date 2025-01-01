@@ -11,18 +11,6 @@ This project demonstrates:
 - Responsive design principles
 - Toast notifications for payment status
 
-## Project Structure
-
-project/
-├── public/
-│ ├── index.html # Main HTML with payment and cart UI
-│ ├── style.css # CSS styles for the application
-│ ├── app.js # Client-side JavaScript for payment and cart
-│ └── logo.png # Company logo
-├── server.js # Express server for payment processing
-├── .gitignore # Git ignore configuration
-└── README.md # Project documentation
-
 
 ## Technical Stack
 
@@ -47,10 +35,12 @@ Before running this project, ensure you have:
 ## Installation
 
 1. Clone the repository:
+bash
 git clone [repository-url]
 cd checkout-payment-demo
 
 2. Install dependencies:
+bash
 npm install
 
 3. Configure your Checkout.com credentials in `app.js`:
