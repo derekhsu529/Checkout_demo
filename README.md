@@ -79,6 +79,12 @@ http://localhost:3000
    - Processes payments securely
    - Shows status notifications
 
+3. Testing
+- Use Checkout.com test cards:
+- Card Number: 4242 4242 4242 4242
+- Expiry Date: Any future date
+- CVV: Any 3 digits
+
 ## Contributing
 
 1. Fork the repository
