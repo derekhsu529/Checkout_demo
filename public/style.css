@@ -90,7 +90,6 @@ form {
     position: fixed;
     left: calc(504px + 25px + 20px);
     top: 25px;
-    transform: none;
     width: 378px;
     min-height: 460px;
     max-height: 460px;
@@ -101,6 +100,7 @@ form {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    will-change: transform, opacity;
 }
 
 .cart-container h2 {
@@ -235,4 +235,20 @@ form {
     width: 60px;
     height: 60px;
     object-fit: contain;
+}
+
+/* 添加隐藏类 */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: visibility 0s 0.3s, opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* 添加显示类 */
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: visibility 0s, opacity 0.3s ease-out, transform 0.3s ease-out;
 }

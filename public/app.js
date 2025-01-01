@@ -61,6 +61,11 @@ function initializeCart() {
       console.log("onReady");
       // 初始化时更新支付按钮金额
       updatePayButtonAmount(quantity * pricePerItem);
+      
+      // 显示购物车
+      const cartContainer = document.querySelector('.cart-container');
+      cartContainer.classList.remove('hidden');
+      cartContainer.classList.add('visible');
     },
     onPaymentCompleted: (_component, paymentResponse) => {
       console.log("Create Payment with PaymentId: ", paymentResponse.id);
