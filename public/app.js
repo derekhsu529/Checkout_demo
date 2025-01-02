@@ -1,50 +1,31 @@
 /* global CheckoutWebComponents */
 
-// 将数量和价格相关的变量和函数移到全局作用域
-let quantity = 1;
 const pricePerItem = 50;
 let flowComponent;
 
 // 更新支付按钮金额的函数
 function updatePayButtonAmount(amount) {
-  // 使用 setTimeout 确保按钮已经渲染
   setTimeout(() => {
     const payButton = document.querySelector('.cko-pay-button');
     if (payButton) {
-      payButton.textContent = `Pay $${amount.toFixed(2)}`;
+      payButton.textContent = `Pay €${amount.toFixed(2)}`;
     }
   }, 100);
 }
 
-// 初始化购物车功能
-function initializeCart() {
-  const quantityBtns = document.querySelectorAll('.quantity-btn');
-  const quantityDisplay = document.querySelector('.quantity');
-  const subtotalPrice = document.querySelector('.subtotal span:last-child');
-
-  quantityBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault(); // 防止按钮提交表单
-      if (this.textContent === '+' && quantity < 10) {
-        quantity++;
-      } else if (this.textContent === '-' && quantity > 1) {
-        quantity--;
-      }
-      quantityDisplay.textContent = quantity;
-      const totalAmount = quantity * pricePerItem;
-      subtotalPrice.textContent = `$${totalAmount.toFixed(2)}`;
-      
-      // 更新支付按钮金额
-      updatePayButtonAmount(totalAmount);
-    });
-  });
-}
-
 (async () => {
-  // Insert your public key here
   const PUBLIC_KEY = "pk_sbox_7ga23zp47ly2qrfhfen5pdpxa4u";
+  
+  // 固定金额为单个商品价格
+  const subtotal = pricePerItem;
+  const response = await fetch("/create-payment-sessions", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ amount: subtotal }) 
+  });
 
-  const response = await fetch("/create-payment-sessions", { method: "POST" }); // Order
   const paymentSession = await response.json();
 
   if (!response.ok) {
@@ -60,7 +41,7 @@ function initializeCart() {
     onReady: () => {
       console.log("onReady");
       // 初始化时更新支付按钮金额
-      updatePayButtonAmount(quantity * pricePerItem);
+      updatePayButtonAmount(pricePerItem);
       
       // 显示购物车
       const cartContainer = document.querySelector('.cart-container');
@@ -84,11 +65,9 @@ function initializeCart() {
   flowComponent.mount(document.getElementById("flow-container"));
 })();
 
-// 在 DOM 加载完成后初始化购物车功能
-document.addEventListener('DOMContentLoaded', function() {
-  initializeCart();
-});
+// 移除 initializeCart 函数和相关的事件监听器
 
+// Toast 通知相关代码保持不变
 function triggerToast(id) {
   var element = document.getElementById(id);
   element.classList.add("show");

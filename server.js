@@ -19,10 +19,12 @@ app.post("/create-payment-sessions", async (_req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        amount: 6540,
-        currency: "GBP",
+        //amount: 6540,
+        amount: _req.body.amount,
+        currency: "EUR",
         reference: "ORD-123A",
-        description: "Payment for Guitars and Amps",
+        description: "Payment for IPhone Case",
+        
         billing_descriptor: {
           name: "Jia Tsang",
           city: "London",
@@ -64,7 +66,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
         failure_url: "http://localhost:3000/?status=failed",
         processing_channel_id:"pc_yfxfwkp77lbehpilfiggpccloq",
         metadata: {},
-        items: [
+        /*items: [
           {
             name: "Guitar",
             quantity: 1,
@@ -75,13 +77,13 @@ app.post("/create-payment-sessions", async (_req, res) => {
             quantity: 3,
             unit_price: 1635,
           },
-        ],
+        ],*/
       }),
     }
   );
 
   const parsedPayload = await request.json();
-
+  //console.log(_req.body.amount);
   res.status(request.status).send(parsedPayload);
 });
 
