@@ -10,7 +10,7 @@ const SECRET_KEY = "sk_sbox_gp6tnu4yazkn5jygklzmwfr5jey";
 
 app.post("/create-payment-sessions", async (_req, res) => {
   // Create a PaymentSession
-  const request = await fetch(
+  const request = await fetch(//第二步：后端收到前端的_req，call payment-sessions 的 API（同时鉴权），拿到了 session 的数据，并会有一个res返回给前端
     "https://api.sandbox.checkout.com/payment-sessions",
     {
       method: "POST",
@@ -20,7 +20,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
       },
       body: JSON.stringify({
         //amount: 6540,
-        amount: _req.body.amount,
+        amount: 50,
         currency: "EUR",
         reference: "ORD-123A",
         description: "Payment for IPhone Case",
