@@ -62,7 +62,7 @@ function updatePayButtonAmount(amount) {
     },
   });
 
-  flowComponent = checkout.create("flow");//第三步：前端拿到数据后，建 session 的 flow，flow 的参数已经在 CheckoutWebComponents 中设置好了
+  flowComponent = checkout.create("flow");//第三步：前端拿到数据后，使用 public key 并通过 CheckoutWebComponents 的传值，创建 paymentSession 的 flow
   flowComponent.mount(document.getElementById("flow-container"));//第四步：渲染实例到 Container 上
 })();
 
