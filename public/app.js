@@ -18,7 +18,7 @@ function updatePayButtonAmount(amount) {
   
   // 固定金额为单个商品价格
   const subtotal = pricePerItem;
-  const response = await fetch("/create-payment-sessions", {//第一步：前端发起对后端的请求
+  const response = await fetch("/create-payment-sessions", {//第二步：前端发起对后端发起POST请求，创建一个支付对话
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -62,8 +62,8 @@ function updatePayButtonAmount(amount) {
     },
   });
 
-  flowComponent = checkout.create("flow");//第三步：前端拿到数据后，使用 public key 并通过 CheckoutWebComponents 的传值，创建 paymentSession 的 flow
-  flowComponent.mount(document.getElementById("flow-container"));//第四步：渲染实例到 Container 上
+  flowComponent = checkout.create("flow");//第四步：接收到server.js返回的支付会话数据，并使用CheckoutWebComponents初始化支付组件
+  flowComponent.mount(document.getElementById("flow-container"));//第五步：将支付组件挂载渲染到 #flow-container 元素中
 })();
 
 // 移除 initializeCart 函数和相关的事件监听器

@@ -8,9 +8,9 @@ app.use(express.json());
 // Insert your secret key here
 const SECRET_KEY = "sk_sbox_gp6tnu4yazkn5jygklzmwfr5jey";
 
-app.post("/create-payment-sessions", async (_req, res) => {
+app.post("/create-payment-sessions", async (_req, res) => {//第三步，后端接收到前端的POST请求，向payment-sessions发起请求并鉴权，然后将 paymentSession 返回给前端app.js
   // Create a PaymentSession
-  const request = await fetch(//第二步：后端收到前端的_req，call payment-sessions 的 API（同时鉴权），拿到了 session 的数据，并会有一个res返回给前端
+  const request = await fetch(
     "https://api.sandbox.checkout.com/payment-sessions",
     {
       method: "POST",
